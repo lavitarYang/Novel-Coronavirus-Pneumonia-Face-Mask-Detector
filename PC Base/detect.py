@@ -7,7 +7,6 @@ import imutils
 import time
 import cv2
 import os
-import paho.mqtt.client as mqtt
 import random
 import json
 
@@ -76,17 +75,6 @@ while True:
 		cv2.putText(frame, label, (startX, startY - 10),
 			cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
 		cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
-		""" You can have some changes here
-			client = mqtt.Client()
-			client.username_pw_set("try","xxxx") 
-			client.connect("192.168.56.1", 1883, 60)
-			while True:
-				payload = {'Have Mask:?\n' : label}
-				print(json.dumps(payload))
-				client.publish("Try/MQTT", json.dumps(payload))
-				time.sleep(10)
-				break
-		 You can have some changes here to end """
 	cv2.imshow("Frame", frame)
 	key = cv2.waitKey(1) & 0xFF
 
